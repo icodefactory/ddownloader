@@ -195,9 +195,9 @@ class Fetch():
 
 if __name__ == '__main__':
     fetch = Fetch()
-    if len(sys.argv) < 4:
+    if len(sys.argv) < 2:
         fetch.start()
-    else:
+    elif len(sys.argv) == 4:
         type = sys.argv[1] #下载类型
         url = sys.argv[2] #博客或文章地址
         path = sys.argv[3] #保存目录
@@ -205,4 +205,6 @@ if __name__ == '__main__':
             fetch._start()
         else:
             fetch.usage()
+    else:
+        fetch.usage()
     
