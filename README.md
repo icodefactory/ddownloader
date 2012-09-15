@@ -4,7 +4,7 @@
 
 依赖
 ====
-* Python
+* Python 2.7
 * BeautifulSoup
 
 使用
