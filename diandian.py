@@ -70,7 +70,7 @@ class Fetch():
         self.url = 'http://' + self.host + '/archive'
         self.ourl = url
         return True
-    
+
     def getUrl(self):
         url = raw_input('input the blog or the archive url: ').strip()
         if url == '':
@@ -78,20 +78,20 @@ class Fetch():
             self.getUrl()
             return None
         self.setUrl(url)
-    
+
     def setStorePath(self, path):
-        self.storePath = ospath.abspath(path) + ospath.sep
+        self.storePath = unicode(ospath.abspath(path), 'gbk')+ ospath.sep
         if not ospath.exists(self.storePath):
             return False
         return True
-    
+
     def getStorePath(self):
-        self.storePath = raw_input('input the full path where you want to store the images: ')
+        self.storePath = unicode(raw_input('input the full path where you want to store the images: '), 'gbk')
         self.storePath = ospath.abspath(self.storePath) + ospath.sep
         if not ospath.exists(self.storePath):
             self.console('the path you input dose not exsit')
             self.getStorePath()
-            
+
     def setDmethod(self, type):
         self.dtype = type
         if self.dtype != '1' and self.dtype != '2':
@@ -180,12 +180,12 @@ class Fetch():
         self.imgs = []
         self.downloaded = 0
 
-    def start(self):   
+    def start(self):
         self.getDmethod()
         self.getUrl()
         self.getStorePath()
         self._start()
-        
+
     def usage(self):
         self.console('''
  Usage: python diandian.py [download type] [blog or archive url] [save path]
@@ -207,4 +207,4 @@ if __name__ == '__main__':
             fetch.usage()
     else:
         fetch.usage()
-    
+
